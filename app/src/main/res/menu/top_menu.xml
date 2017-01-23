@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/iconLocation"
+        android:icon="@drawable/ic_location"
+        android:title="@string/menu_location" />
+
+    <item
+        android:id="@+id/iconPlan"
+        android:icon="@drawable/ic_plan"
+        android:title="@string/menu_plan" />
+
+    <item
+        android:id="@+id/iconShare"
+        android:icon="@drawable/ic_share"
+        android:title="@string/menu_share" />
+
+    <item
+        android:id="@+id/iconMemory"
+        android:icon="@drawable/ic_memory"
+        android:title="@string/menu_memory" />
+</menu>

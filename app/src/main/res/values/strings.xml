@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">VinaTrip</string>
+    <string name="title_activity_welcome">Home Screen</string>
+
+    <!-- String cho các button -->
+    <string name="next">Kế tiếp</string>
+    <string name="skip">Bỏ qua</string>
+    <string name="done">Xong</string>
+    <string name="button_use_now">Sử dụng ngay</string>
+
+    <!-- String cho màn hình welcome -->
+    <string name="welcome_screen_title1">Thông tin địa điểm</string>
+    <string name="welcome_screen_desc1">Cung cấp thông tin điểm đến, khách sạn, ăn uống và nhiều thông tin khác!</string>
+
+    <string name="welcome_screen_title2">Lên lịch trình</string>
+    <string name="welcome_screen_desc2">Giúp bạn tạo lịch trình chu đáo để có chuyến đi trọn vẹn!</string>
+
+    <string name="welcome_screen_title3">Chia sẻ trải nghiệm</string>
+    <string name="welcome_screen_desc3">Cùng cộng đồng người dùng VinaTrip chia sẻ các trải nghiệm với nhau để tạo nên chuyến du lịch tuyệt vời nhất!</string>
+
+    <string name="welcome_screen_title4">Lưu lại cảm xúc</string>
+    <string name="welcome_screen_desc4">Những nơi bạn đi qua sẽ được lưu lại cùng với những cảm xúc khó quên!</string>
+
+    <!-- String cho bottom menu -->
+    <string name="menu_location">Địa điểm</string>
+    <string name="menu_plan">Kế hoạch</string>
+    <string name="menu_share">Chia sẻ</string>
+    <string name="menu_memory">Kỷ niệm</string>
+
+    <!-- String cho layout item_province -->
+    <string name="name_not_available">Name is not available</string>
+    <string name="title_not_available">Title is not available</string>
+
+</resources>

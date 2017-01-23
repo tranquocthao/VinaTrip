@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "732888698707",
+    "firebase_url": "https://vinatrip-5ffa5.firebaseio.com",
+    "project_id": "vinatrip-5ffa5",
+    "storage_bucket": "vinatrip-5ffa5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732888698707:android:5ecdd4f3948a0776",
+        "android_client_info": {
+          "package_name": "com.dfa.vinatrip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732888698707-fi1t7556n0j9k1rfqft5e2dtutacfv6v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9m1Ch6M_mX0mYVZT2T_se6r3jLOG1blg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

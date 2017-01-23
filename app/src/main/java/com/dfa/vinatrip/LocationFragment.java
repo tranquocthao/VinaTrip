@@ -1,5 +1,6 @@
 package com.dfa.vinatrip;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,7 @@ public class LocationFragment extends Fragment {
     private RecyclerView rvProvinces;
     private ProvinceAdapter provinceAdapter;
     private List<Province> provinceList;
+    private ProgressDialog pdWaiting;
 
     @Nullable
     @Override
@@ -27,10 +29,13 @@ public class LocationFragment extends Fragment {
         rvProvinces = (RecyclerView) view.findViewById(R.id.rvProvince);
         provinceList = new ArrayList<>();
 
-        provinceAdapter = new ProvinceAdapter(getActivity(), provinceList);
+        // truyền nó vào Asyntask để show, Adapter để tắt khi Picasso load ảnh hoàn tất
+        pdWaiting = new ProgressDialog(getActivity());
+
+        provinceAdapter = new ProvinceAdapter(getActivity(), provinceList, pdWaiting);
         rvProvinces.setAdapter(provinceAdapter);
 
-        LoadProvinceFromFirebase loadProvinceFromFirebase = new LoadProvinceFromFirebase(getActivity(), provinceList, provinceAdapter);
+        LoadProvinceFromFirebase loadProvinceFromFirebase = new LoadProvinceFromFirebase(getActivity(), provinceList, provinceAdapter, pdWaiting);
         loadProvinceFromFirebase.execute();
 
 //        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);

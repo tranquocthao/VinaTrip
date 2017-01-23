@@ -20,15 +20,15 @@ public class LoadProvinceFromFirebase extends AsyncTask<Void, Province, Void> {
     private Context context;
     private ProgressDialog pdWaiting;
 
-    public LoadProvinceFromFirebase(Context context, List<Province> provinceList, ProvinceAdapter provinceAdapter) {
+    public LoadProvinceFromFirebase(Context context, List<Province> provinceList, ProvinceAdapter provinceAdapter, ProgressDialog pdWaiting) {
         this.provinceList = provinceList;
         this.provinceAdapter = provinceAdapter;
         this.context = context;
+        this.pdWaiting = pdWaiting;
     }
 
     @Override
     protected Void doInBackground(Void... voids) {
-
         DatabaseReference databaseReference = firebaseDatabase.getReference();
 
         // nếu không có mạng thì sẽ auto không chạy vào hàm này
@@ -69,18 +69,9 @@ public class LoadProvinceFromFirebase extends AsyncTask<Void, Province, Void> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        // quá trình tải về rất nhanh nên thường ko thấy pdWaiting, thời gian chờ có thể là tg load lên View, ko hẳn là tg tải data
-        pdWaiting = new ProgressDialog(context);
+        // quá trình tải về rất nhanh, thời gian chờ có thể là tg load lên View của Picasso, ko hẳn là tg tải data
         pdWaiting.setMessage("Xin hãy chờ...");
         pdWaiting.show();
-    }
-
-    @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
-        if (pdWaiting.isShowing()) {
-            pdWaiting.dismiss();
-        }
     }
 
     @Override

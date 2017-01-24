@@ -1,8 +1,9 @@
 package com.dfa.vinatrip;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -14,17 +15,17 @@ import java.util.List;
 
 public class LoadProvinceFromFirebase extends AsyncTask<Void, Province, Void> {
 
-    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private List<Province> provinceList;
     private ProvinceAdapter provinceAdapter;
     private Context context;
-    private ProgressDialog pdWaiting;
+    private ProgressBar pbWaiting;
 
-    public LoadProvinceFromFirebase(Context context, List<Province> provinceList, ProvinceAdapter provinceAdapter, ProgressDialog pdWaiting) {
+    public LoadProvinceFromFirebase(Context context, List<Province> provinceList, ProvinceAdapter provinceAdapter, ProgressBar pbWaiting) {
         this.provinceList = provinceList;
         this.provinceAdapter = provinceAdapter;
         this.context = context;
-        this.pdWaiting = pdWaiting;
+        this.pbWaiting = pbWaiting;
     }
 
     @Override
@@ -70,8 +71,7 @@ public class LoadProvinceFromFirebase extends AsyncTask<Void, Province, Void> {
     protected void onPreExecute() {
         super.onPreExecute();
         // quá trình tải về rất nhanh, thời gian chờ có thể là tg load lên View của Picasso, ko hẳn là tg tải data
-        pdWaiting.setMessage("Xin hãy chờ...");
-        pdWaiting.show();
+        pbWaiting.setVisibility(View.VISIBLE);
     }
 
     @Override

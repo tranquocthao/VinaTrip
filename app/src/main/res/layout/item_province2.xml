@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- layout dạng grid so le -->
+<?xml version="1.0" encoding="utf-8"?><!-- layout dạng grid so le -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="135dp"
+    android:layout_height="150dp"
     android:orientation="vertical"
-    android:padding="7dp">
+    android:padding="5dp">
 
     <ImageView
         android:id="@+id/ivAvatar"
@@ -13,6 +12,7 @@
         android:src="@drawable/photo_not_available" />
 
     <TextView
+        android:textSize="@dimen/text_medium"
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,6 +26,7 @@
         android:textColor="@android:color/white" />
 
     <TextView
+        android:textSize="@dimen/text_medium"
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

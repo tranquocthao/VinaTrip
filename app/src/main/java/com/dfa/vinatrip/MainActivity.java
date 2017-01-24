@@ -1,30 +1,34 @@
 package com.dfa.vinatrip;
 
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    BottomNavigationView bottomNavigationView;
-    boolean doubleBackPress = false;
-    int selectedItemId;
+    private BottomNavigationView bottomNavigationView;
+    private boolean doubleBackPress = false;
+    private int selectedItemId;
+    private Toolbar toolbar;
+    private android.support.v7.app.ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().setStatusBarColor(Color.BLACK);
-        }
+        setupActionBar();
+
+        // thay đổi màu status bar
+        changeColorStatusBar();
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
 
@@ -47,6 +51,19 @@ public class MainActivity extends AppCompatActivity {
             selectedItem = bottomNavigationView.getMenu().getItem(0);
         }
         selectFragment(selectedItem);
+    }
+
+    public void changeColorStatusBar() {
+        if (Build.VERSION.SDK_INT >= 21) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorStatusBar));
+        }
+    }
+
+    public void setupActionBar() {
+        toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+        actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     public void selectFragment(MenuItem item) {

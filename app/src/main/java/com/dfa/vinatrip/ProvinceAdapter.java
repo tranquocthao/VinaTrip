@@ -1,12 +1,12 @@
 package com.dfa.vinatrip;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Callback;
@@ -18,13 +18,13 @@ public class ProvinceAdapter extends RecyclerView.Adapter<ProvinceAdapter.Provin
     private List<Province> provinceList;
     private LayoutInflater layoutInflater;
     private Context context;
-    private ProgressDialog pdWaiting;
+    private ProgressBar pbWaiting;
 
-    public ProvinceAdapter(Context context, List<Province> provinceList, ProgressDialog pdWaiting) {
+    public ProvinceAdapter(Context context, List<Province> provinceList, ProgressBar pbWaiting) {
         this.provinceList = provinceList;
         this.layoutInflater = LayoutInflater.from(context);
         this.context = context;
-        this.pdWaiting = pdWaiting;
+        this.pbWaiting = pbWaiting;
     }
 
     @Override
@@ -47,8 +47,8 @@ public class ProvinceAdapter extends RecyclerView.Adapter<ProvinceAdapter.Provin
                 new Callback() {
                     @Override
                     public void onSuccess() {
-                        // Tắt progress dialog khi load xong
-                        pdWaiting.cancel();
+                        // Tắt progress bar khi load xong
+                        pbWaiting.setVisibility(View.GONE);
                     }
 
                     @Override

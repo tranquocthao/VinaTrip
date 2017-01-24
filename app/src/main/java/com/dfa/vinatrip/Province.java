@@ -22,7 +22,6 @@ public class Province {
         return title;
     }
 
-
     public String getLinkPhoto() {
         return linkPhoto;
     }

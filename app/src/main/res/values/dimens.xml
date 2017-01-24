@@ -10,4 +10,8 @@
     <dimen name="welcome_screen_desc">16sp</dimen>
     <dimen name="desc_padding">40dp</dimen>
     <dimen name="top_padding">80dp</dimen>
+
+    <!-- cỡ chữ -->
+    <dimen name="text_medium">15sp</dimen>
+    <dimen name="text_large">18sp</dimen>
 </resources>

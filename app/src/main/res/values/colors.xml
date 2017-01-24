@@ -17,4 +17,8 @@
     <!-- màu background view -->
     <color name="colorBackgroundView">#f6f6f6</color>
 
+    <color name="colorStatusBar">#D02090</color>
+
+    <color name="transparent">#00000000</color>
+
 </resources>

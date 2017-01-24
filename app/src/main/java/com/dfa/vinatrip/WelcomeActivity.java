@@ -20,8 +20,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private MyViewPagerAdapter myViewPagerAdapter;
-    private LinearLayout dotsLayout;
-    private TextView[] dots;
+    private LinearLayout llDots;
+    private TextView[] tvDots;
     private int[] layouts;
     private Button btnSkip, btnNext, btnUseNow;
 
@@ -69,19 +69,18 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
-        dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
+        llDots = (LinearLayout) findViewById(R.id.layoutDots);
         btnSkip = (Button) findViewById(R.id.btn_skip);
         btnNext = (Button) findViewById(R.id.btn_next);
         btnUseNow = (Button) findViewById(R.id.btnUseNow);
 
         // layouts of all welcome sliders
-        // add few more layouts if you want
         layouts = new int[]{R.layout.welcome_screen1, R.layout.welcome_screen2, R.layout.welcome_screen3, R.layout.welcome_screen4};
 
-        // adding bottom dots
+        // adding bottom tvDots
         addBottomDots(0);
 
-        // making notification bar transparent
+        // làm status bar trong suốt
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
@@ -119,20 +118,20 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void addBottomDots(int currentPage) {
-        dots = new TextView[layouts.length];
+        tvDots = new TextView[layouts.length];
 
-        dotsLayout.removeAllViews();
-        for (int i = 0; i < dots.length; i++) {
-            dots[i] = new TextView(this);
+        llDots.removeAllViews();
+        for (int i = 0; i < tvDots.length; i++) {
+            tvDots[i] = new TextView(this);
             // ký tự bullet
-            dots[i].setText("\u2022");
-            dots[i].setTextSize(35);
-            dots[i].setTextColor(ContextCompat.getColor(this, R.color.colorDotInactive));
-            dotsLayout.addView(dots[i]);
+            tvDots[i].setText("\u2022");
+            tvDots[i].setTextSize(35);
+            tvDots[i].setTextColor(ContextCompat.getColor(this, R.color.colorDotInactive));
+            llDots.addView(tvDots[i]);
         }
 
-        if (dots.length > 0)
-            dots[currentPage].setTextColor(ContextCompat.getColor(this, R.color.colorDotActive));
+        if (tvDots.length > 0)
+            tvDots[currentPage].setTextColor(ContextCompat.getColor(this, R.color.colorDotActive));
     }
 
     private void launchHomeScreen() {

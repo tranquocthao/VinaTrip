@@ -8,14 +8,48 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvProvince"
+        <!-- để kết hợp scroll lại, nếu không sẽ ra 2 thanh scroll -->
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="5dp"
-            android:scrollbars="vertical" />
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/vpPhotoSlideShow"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:background="#ff0000" />
+
+                    <LinearLayout
+                        android:id="@+id/llDots"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dots_height"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="@dimen/dots_margin_bottom"
+                        android:gravity="center"
+                        android:orientation="horizontal" />
+
+                </FrameLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvProvince"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:scrollbars="vertical" />
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
 
     </android.support.v4.widget.SwipeRefreshLayout>
-
 
 </RelativeLayout>

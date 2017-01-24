@@ -62,7 +62,7 @@ public class ProvinceAdapter extends RecyclerView.Adapter<ProvinceAdapter.Provin
         return provinceList.size();
     }
 
-    class ProvinceViewHolder extends RecyclerView.ViewHolder {
+    public static class ProvinceViewHolder extends RecyclerView.ViewHolder{
         private TextView tvName, tvTitle;
         private ImageView ivAvatar;
 

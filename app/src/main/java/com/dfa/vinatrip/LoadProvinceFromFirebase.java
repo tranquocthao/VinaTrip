@@ -69,7 +69,7 @@ public class LoadProvinceFromFirebase extends AsyncTask<Void, Province, Void> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        // quá trình tải về rất nhanh, thời gian chờ có thể là tg load lên View của Picasso, ko hẳn là tg tải data
+        // quá trình tải về rất nhanh, thời gian chờ có thể là tg tải ảnh của Picasso
         srlReload.setRefreshing(true);
     }
 

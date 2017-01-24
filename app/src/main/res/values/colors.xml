@@ -21,4 +21,7 @@
 
     <color name="transparent">#00000000</color>
 
+    <color name="colorIconWaiting1">#228B22</color>
+    <color name="colorIconWaiting2">#FF0000</color>
+
 </resources>

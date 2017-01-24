@@ -2,8 +2,7 @@ package com.dfa.vinatrip;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.view.View;
-import android.widget.ProgressBar;
+import android.support.v4.widget.SwipeRefreshLayout;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -19,13 +18,13 @@ public class LoadProvinceFromFirebase extends AsyncTask<Void, Province, Void> {
     private List<Province> provinceList;
     private ProvinceAdapter provinceAdapter;
     private Context context;
-    private ProgressBar pbWaiting;
+    private SwipeRefreshLayout srlReload;
 
-    public LoadProvinceFromFirebase(Context context, List<Province> provinceList, ProvinceAdapter provinceAdapter, ProgressBar pbWaiting) {
+    public LoadProvinceFromFirebase(Context context, List<Province> provinceList, ProvinceAdapter provinceAdapter, SwipeRefreshLayout srlReload) {
         this.provinceList = provinceList;
         this.provinceAdapter = provinceAdapter;
         this.context = context;
-        this.pbWaiting = pbWaiting;
+        this.srlReload = srlReload;
     }
 
     @Override
@@ -71,7 +70,7 @@ public class LoadProvinceFromFirebase extends AsyncTask<Void, Province, Void> {
     protected void onPreExecute() {
         super.onPreExecute();
         // quá trình tải về rất nhanh, thời gian chờ có thể là tg load lên View của Picasso, ko hẳn là tg tải data
-        pbWaiting.setVisibility(View.VISIBLE);
+        srlReload.setRefreshing(true);
     }
 
     @Override

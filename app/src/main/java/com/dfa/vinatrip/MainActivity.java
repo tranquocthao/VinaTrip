@@ -2,12 +2,12 @@ package com.dfa.vinatrip;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void changeColorStatusBar() {
         if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorStatusBar));
+            getWindow().setStatusBarColor(Color.BLACK);
         }
     }
 
@@ -135,6 +135,8 @@ public class MainActivity extends AppCompatActivity {
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         // Expand searchView, nếu không nó chỉ thu gọn lại thành icon
         searchView.setIconifiedByDefault(false);
+
+        searchView.setQueryHint("Tìm kiếm...");
 
         return true;
     }

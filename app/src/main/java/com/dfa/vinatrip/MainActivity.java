@@ -18,6 +18,10 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private LocationFragment locationFragment;
+    private PlanFragment planFragment;
+    private ShareFragment shareFragment;
+    private MemoryFragment memoryFragment;
     private BottomNavigationView bottomNavigationView;
     private boolean doubleBackPress = false;
     private int selectedItemId;
@@ -31,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
         setupActionBar();
 
-        // thay đổi màu status bar
         changeColorStatusBar();
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
@@ -46,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        addNewFragments();
 
         // load fragment_location lên đầu tiên
         MenuItem selectedItem;
@@ -75,23 +80,42 @@ public class MainActivity extends AppCompatActivity {
     public void selectFragment(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.iconLocation:
-                LocationFragment locationFragment = new LocationFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutContainer, locationFragment).commit();
+                getSupportFragmentManager().beginTransaction().show(locationFragment).commit();
+                getSupportFragmentManager().beginTransaction().hide(planFragment).commit();
+                getSupportFragmentManager().beginTransaction().hide(shareFragment).commit();
+                getSupportFragmentManager().beginTransaction().hide(memoryFragment).commit();
                 break;
             case R.id.iconPlan:
-                PlanFragment planFragment = new PlanFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutContainer, planFragment).commit();
+                getSupportFragmentManager().beginTransaction().hide(locationFragment).commit();
+                getSupportFragmentManager().beginTransaction().show(planFragment).commit();
+                getSupportFragmentManager().beginTransaction().hide(shareFragment).commit();
+                getSupportFragmentManager().beginTransaction().hide(memoryFragment).commit();
                 break;
             case R.id.iconShare:
-                ShareFragment shareFragment = new ShareFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutContainer, shareFragment).commit();
+                getSupportFragmentManager().beginTransaction().hide(locationFragment).commit();
+                getSupportFragmentManager().beginTransaction().hide(planFragment).commit();
+                getSupportFragmentManager().beginTransaction().show(shareFragment).commit();
+                getSupportFragmentManager().beginTransaction().hide(memoryFragment).commit();
                 break;
             case R.id.iconMemory:
-                MemoryFragment memoryFragment = new MemoryFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutContainer, memoryFragment).commit();
+                getSupportFragmentManager().beginTransaction().hide(locationFragment).commit();
+                getSupportFragmentManager().beginTransaction().hide(planFragment).commit();
+                getSupportFragmentManager().beginTransaction().hide(shareFragment).commit();
+                getSupportFragmentManager().beginTransaction().show(memoryFragment).commit();
                 break;
         }
         selectedItemId = item.getItemId();
+    }
+
+    public void addNewFragments() {
+        locationFragment = new LocationFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.frameLayoutContainer, locationFragment).commit();
+        planFragment = new PlanFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.frameLayoutContainer, planFragment).commit();
+        shareFragment = new ShareFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.frameLayoutContainer, shareFragment).commit();
+        memoryFragment = new MemoryFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.frameLayoutContainer, memoryFragment).commit();
     }
 
     @Override

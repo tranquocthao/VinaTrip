@@ -18,14 +18,13 @@ import android.widget.TextView;
 
 public class WelcomeActivity extends AppCompatActivity {
 
-    private ViewPager viewPager;
-    private MyViewPagerAdapter myViewPagerAdapter;
+    private ViewPager vpSlideIntro;
+    private ViewPagerAdapter viewPagerAdapter;
     private LinearLayout llDots;
     private TextView[] tvDots;
     private int[] layouts;
     private Button btnSkip, btnNext, btnUseNow;
 
-    //  viewpager change listener
     ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
 
         @Override
@@ -68,7 +67,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_welcome);
 
-        viewPager = (ViewPager) findViewById(R.id.view_pager);
+        vpSlideIntro = (ViewPager) findViewById(R.id.vpSlideIntro);
         llDots = (LinearLayout) findViewById(R.id.layoutDots);
         btnSkip = (Button) findViewById(R.id.btn_skip);
         btnNext = (Button) findViewById(R.id.btn_next);
@@ -86,9 +85,9 @@ public class WelcomeActivity extends AppCompatActivity {
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
 
-        myViewPagerAdapter = new MyViewPagerAdapter();
-        viewPager.setAdapter(myViewPagerAdapter);
-        viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
+        viewPagerAdapter = new ViewPagerAdapter();
+        vpSlideIntro.setAdapter(viewPagerAdapter);
+        vpSlideIntro.addOnPageChangeListener(viewPagerPageChangeListener);
 
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,9 +99,9 @@ public class WelcomeActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int current = viewPager.getCurrentItem() + 1;
+                int current = vpSlideIntro.getCurrentItem() + 1;
                 if (current < layouts.length) {
-                    viewPager.setCurrentItem(current);
+                    vpSlideIntro.setCurrentItem(current);
                 } else {
                     launchHomeScreen();
                 }
@@ -140,10 +139,10 @@ public class WelcomeActivity extends AppCompatActivity {
         finish();
     }
 
-    public class MyViewPagerAdapter extends PagerAdapter {
+    public class ViewPagerAdapter extends PagerAdapter {
         private LayoutInflater layoutInflater;
 
-        public MyViewPagerAdapter() {
+        public ViewPagerAdapter() {
         }
 
         @Override

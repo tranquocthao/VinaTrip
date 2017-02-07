@@ -10,3 +10,8 @@ Project name: VinaTrip
 * Information, photo, about VietNam's province.
 * Help you find cheap hotel, delecious food.
 * Share travel experience with other people.
+
+**Technologies use in Project**
+* Google Firebase.
+* Picasso to load image.
+* ViewPager, RecyclerView....

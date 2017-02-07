@@ -5,11 +5,11 @@ Project name: VinaTrip
 ----------------------------
 
 **Overview**:
-* Help people all about destination, hotel, food... when travel to Viet Nam.
-* Find destionation.
-* Information, photo, about VietNam's province.
-* Help you find cheap hotel, delecious food.
-* Share travel experience with other people.
+* Help all people about destination, hotel, food... when travel to Viet Nam.
+* Find destination.
+* Give information, photo, about VietNam's provinces.
+* Help you find cheap hotel, delicious food.
+* Share your travel experiences with other people.
 
 **Technologies use in Project**
 * Google Firebase.

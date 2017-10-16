@@ -8,6 +8,6 @@
         android:background="#2bf9f908"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="fragment plan" />
+        android:text="fragment plan abcdddd" />
 
 </LinearLayout>
